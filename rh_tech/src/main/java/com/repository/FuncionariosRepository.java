@@ -1,5 +1,9 @@
-package com.repository;
+package com.rh_tech.rh_tech.repository;
 
-public class FuncionariosRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-}
+import com.model.FuncionariosModel;
+
+@Repository
+public interface FuncionariosRepository extends JpaRepository<FuncionariosModel,Long>{}
