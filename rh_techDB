@@ -1,0 +1,21 @@
+create database rh_tech;
+use rh_tech;
+create table funcionarios(
+id bigint auto_increment primary key not null,
+nome varchar(100) not null,
+email varchar(100) not null unique,
+senha varchar(50) not null,
+cep varchar(8) not null,
+endereco varchar(100) not null,
+numero varchar(10) not null,
+bairro varchar(100) not null,
+cidade varchar(100) not null,
+estado varchar(100) not null
+);
+
+use rh_tech;
+create table cargos(
+id bigint auto_increment primary key not null,
+nome varchar(100) not null,
+descricao varchar(400)
+);
