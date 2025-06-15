@@ -19,3 +19,18 @@ id bigint auto_increment primary key not null,
 nome varchar(100) not null,
 descricao varchar(400)
 );
+
+use rh_tech;
+create table funcionario_por_cargo(
+id bigint auto_increment primary key not null,
+funcionario_id bigint not null,
+cargo_id bigint not null,
+detalhes Varchar(500),
+data_inicio date not null,
+data_fim date,
+
+Foreign key (funcionario_id)
+references funcionarios(id),
+Foreign key (cargo_id)
+references cargos(id)
+);
