@@ -20,7 +20,7 @@ import com.rh_tech.rh_tech.services.CargosServices;
 
 @RestController
 @RequestMapping("/cargos")
-@CrossOrigin(origins="http://127.0.0.1:5500")
+@CrossOrigin(origins="*")
 public class CargosController {
 @Autowired
 private CargosServices services;
@@ -42,7 +42,7 @@ public CargosModel salvar (@RequestBody CargosModel CargosModel){
 
 @PutMapping("/{id}")
 public ResponseEntity<CargosModel>atualizar(@PathVariable Long id, @RequestBody CargosModel CargosModel){
-    if (services.buscarId(id).isPresent()) {
+    if (!services.buscarId(id).isPresent()) {
         return ResponseEntity.notFound().build();
     }
     CargosModel.setId(id);
@@ -51,7 +51,7 @@ public ResponseEntity<CargosModel>atualizar(@PathVariable Long id, @RequestBody 
 
 @DeleteMapping("/{id}")
 public ResponseEntity<Void>deletar(@PathVariable Long id){
-    if (services.buscarId(id).isPresent()) {
+    if (!services.buscarId(id).isPresent()) {
         return ResponseEntity.notFound().build();
     }
     services.deletar(id);
